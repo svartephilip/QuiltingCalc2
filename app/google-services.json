@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "464909232491",
+    "firebase_url": "https://quiltingcalc.firebaseio.com",
+    "project_id": "quiltingcalc",
+    "storage_bucket": "quiltingcalc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464909232491:android:7a12b46175f7e5e4",
+        "android_client_info": {
+          "package_name": "com.magnus.oskar.quiltingcalc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464909232491-3fql31t8mreo5at9gdqcguq5uk8j3j3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx5l95oMmksBCp_F-712lff0g3QHKRv68"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464909232491-3fql31t8mreo5at9gdqcguq5uk8j3j3p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

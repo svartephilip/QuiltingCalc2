@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Not finished yet!!!</string>
+    <string name="Backing">Backing &amp; Batting</string>
+    <string name="Fabric">Measurement Converter</string>
+    <string name="pieceCount">Piece Counter</string>
+    <string name="measurement_in_cm">Measurement in cm</string>
+    <string name="measurement_in_meter">Measurement in meter</string>
+    <string name="measurement_in_feet">Measurement in feet</string>
+    <string name="measurement_in_inch">Measurement in inch</string>
+    <string name="measurement_in_yard">Measurement in yard</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="calc">Calculate</string>
+    <string-array name="units">
+        <item>cm</item>
+        <item>m</item>
+        <item>inch</item>
+        <item>feet</item>
+        <item>yard</item>
+    </string-array>
+    <string name="textView_string">0 cm\n0 m\n0 inches\n0 feet\n0 yard</string>
+</resources>
