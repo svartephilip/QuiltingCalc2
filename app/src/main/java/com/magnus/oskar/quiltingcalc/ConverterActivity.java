@@ -57,6 +57,9 @@ public class ConverterActivity extends AppCompatActivity implements View.OnClick
         double yard = 0;
         double inch = 0;
         double feet = 0;
+        Fractions inchfr = new Fractions();
+        Fractions feetfr = new Fractions();
+        Fractions yardft = new Fractions();
 
         String s = "";
 

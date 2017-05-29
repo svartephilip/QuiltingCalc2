@@ -14,8 +14,11 @@
         <item>cm</item>
         <item>m</item>
         <item>inch</item>
+        <item>inch fraction</item>
         <item>feet</item>
+        <item>feet fraction</item>
         <item>yard</item>
+        <item>yard fraction</item>
     </string-array>
     <string name="textView_string">0 cm\n0 m\n0 inches\n0 feet\n0 yard</string>
 </resources>
