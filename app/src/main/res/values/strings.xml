@@ -20,5 +20,7 @@
         <item>yard</item>
         <item>yard fraction</item>
     </string-array>
-    <string name="textView_string">0 cm\n0 m\n0 inches\n0 feet\n0 yard</string>
+    <string name="textView_string">0 cm\n0 m\n0 inches\n0 feet\n0 yard\n0 rational inch\n0 rational feet\n0 rational yard</string>
+    <string name="title_activity_back_bat">BackBatActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>

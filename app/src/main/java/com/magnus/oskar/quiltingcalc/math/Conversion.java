@@ -1,10 +1,14 @@
-package com.magnus.oskar.quiltingcalc;
+package com.magnus.oskar.quiltingcalc.math;
+
+import com.magnus.oskar.quiltingcalc.math.Fractions;
+
+import java.text.DecimalFormat;
 
 /**
  * Created by mhauk on 10.04.2017.
  */
 
-class Conversion {
+public class Conversion {
     // Data fields
     private double cm, meters, inch, feet, yard;
     private Fractions rationalInch, rationalFeet, rationalYard;
@@ -13,6 +17,8 @@ class Conversion {
     private final double INCHTOCMRATIO=2.54;
     private final double FEETTOINCHRATIO=12; //one (1) feet = twelve (12) inches
     private final double FEETTOYARDRATIO=3; // one (1) yard = three (3) feet
+
+    DecimalFormat f = new DecimalFormat("#0.##");
 
     // Constructor
     //no need for an constructor with arguments
@@ -161,8 +167,8 @@ class Conversion {
         rationalYard.setRational(y);
     }
     public String toString() {
-        return cm + " cm\t" + meters + " m\t" + inch + " inch\n" +
-                feet + " feet\t" + yard + " yard\nrationalInch\n" + rationalInch.toString() +
-                "\nrationalFeet\n" + rationalFeet.toString() + "\nrationalyard\n" + rationalYard.toString();
+        return f.format(cm) + " cm\n" + f.format(meters) + " m\n" + f.format(inch) + " inch\n" +
+                f.format(feet) + " feet\n" + f.format(yard) + " yard\n" + rationalInch.toString() + " rational inch\n" +
+                rationalFeet.toString() + " rational feet\n" + rationalYard.toString() + " rational yard";
     }
 }

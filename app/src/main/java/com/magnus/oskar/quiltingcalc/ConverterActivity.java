@@ -1,8 +1,6 @@
 package com.magnus.oskar.quiltingcalc;
 
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,8 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
+
+import com.magnus.oskar.quiltingcalc.math.Conversion;
+import com.magnus.oskar.quiltingcalc.math.Fractions;
 
 import java.text.DecimalFormat;
 
@@ -23,15 +22,13 @@ public class ConverterActivity extends AppCompatActivity implements View.OnClick
     private Spinner dropMenu;
     private TextView txtConverted;
 
-    private AdView mAdView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_converter);
 
         //finding the elements
-        field = (EditText) findViewById(R.id.field);
+        field = (EditText) findViewById(R.id.editText_decimal);
         btCalc = (Button) findViewById(R.id.calculate);
         dropMenu = (Spinner) findViewById(R.id.menu);
         txtConverted = (TextView) findViewById(R.id.view1);
@@ -44,11 +41,6 @@ public class ConverterActivity extends AppCompatActivity implements View.OnClick
 
         //buttonListener
         btCalc.setOnClickListener(this);
-
-        //show the add in the app
-        mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
     }
 
     @Override
@@ -81,43 +73,23 @@ public class ConverterActivity extends AppCompatActivity implements View.OnClick
         switch(dropMenu.getSelectedItem().toString()) {
             case "cm":
                 con.setCm(toConvert);
-
-                s = f.format(con.getMeters()) + " m\n";
-                s +=  f.format(con.getInch()) + " inches\n";
-                s +=  f.format(con.getFeet()) + " feet\n";
-                s +=  f.format(con.getYard()) + " yard\n";
+                s = con.toString();
                 break;
             case "m":
                 con.setMeters(toConvert);
-
-                s =  f.format(con.getCm()) + " cm\n";
-                s +=  f.format(con.getInch()) + " inches\n";
-                s +=  f.format(con.getFeet()) + " feet\n";
-                s +=  f.format(con.getYard()) + " yard";
+                s =  con.toString();
                 break;
             case "inch":
                 con.setInch(toConvert);
-
-                s =  f.format(con.getCm()) + " cm\n";
-                s +=  f.format(con.getMeters()) + " m\n";
-                s +=  f.format(con.getFeet()) + " feet\n";
-                s +=  f.format(con.getYard()) + " yard";
+                s =  con.toString();
                 break;
             case "feet":
                 con.setFeet(toConvert);
-
-                s =  f.format(con.getCm()) + " cm\n";
-                s +=  f.format(con.getMeters()) + " m\n";
-                s +=  f.format(con.getInch()) + " inch\n";
-                s +=  f.format(con.getYard()) + " yard";
+                s =  con.toString();
                 break;
             case "yard":
                 con.setYard(toConvert);
-
-                s =  f.format(con.getCm()) + " cm\n";
-                s +=  f.format(con.getMeters()) + " m\n";
-                s +=  f.format(con.getInch()) + " inches\n";
-                s +=  f.format(con.getFeet()) + " feet";
+                s =  con.toString();
                 break;
             default:
                 break;

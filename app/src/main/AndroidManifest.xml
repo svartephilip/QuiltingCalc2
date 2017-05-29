@@ -15,7 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ConverterActivity"></activity>
+        <activity android:name=".ConverterActivity" />
+        <activity
+            android:name=".BackBatActivity"
+            android:label="@string/title_activity_back_bat"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

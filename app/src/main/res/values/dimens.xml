@@ -3,8 +3,9 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="EditText_Width">250dp</dimen>
-    <dimen name="editTxt_height">100dp</dimen>
+    <dimen name="editTxt_height">200dp</dimen>
     <dimen name="EditText_TextSize">23sp</dimen>
     <dimen name="CalcBtn_Height">50dp</dimen>
     <dimen name="Spinner_width">100dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

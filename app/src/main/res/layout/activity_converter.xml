@@ -43,7 +43,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50sp"
             android:orientation="horizontal"
             android:gravity="right"
             android:focusableInTouchMode="true">
@@ -53,12 +53,12 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/menu" />
 
-            <EditText
+            <fragment
+                android:name="com.magnus.oskar.quiltingcalc.ConverterActivityRationalFragment"
+                android:id="@+id/editText_fragment"
                 android:layout_width="@dimen/EditText_Width"
-                android:textSize="@dimen/EditText_TextSize"
-                android:layout_height="wrap_content"
-                android:id="@+id/field"
-                android:inputType="numberDecimal" />
+                android:layout_height="match_parent"
+                tools:layout="@layout/fragment_rational"/>
 
         </LinearLayout>
 
@@ -88,7 +88,8 @@
             android:name="com.magnus.oskar.quiltingcalc.AddFragment"
             android:id="@+id/add_fragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_add" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -1,10 +1,10 @@
-package com.magnus.oskar.quiltingcalc;
+package com.magnus.oskar.quiltingcalc.math;
 
 /**
  * Created by mhauk on 14.04.2017.
  */
 
-class Fractions {
+public class Fractions {
     //Data field
     protected int numerator, denominator, whole;
     protected double decimal;
@@ -81,8 +81,7 @@ class Fractions {
         numerator %= denominator;
     }
     public String toString() {
-        return "Whole: " + whole + "\nNumerator: " + numerator + "\ndenominator: " +
-                denominator + "\ndecimal: " + decimal;
+        return whole + " " + numerator + "/" + denominator;
     }
 
     // private methods
