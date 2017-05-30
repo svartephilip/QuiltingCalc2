@@ -88,7 +88,7 @@
             android:name="com.magnus.oskar.quiltingcalc.AddFragment"
             android:id="@+id/add_fragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             tools:layout="@layout/fragment_add" />
     </LinearLayout>
 
