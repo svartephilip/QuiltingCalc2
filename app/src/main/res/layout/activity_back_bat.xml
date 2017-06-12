@@ -2,7 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.magnus.oskar.quiltingcalc.StartActivity"
+    android:weightSum="1">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,12 +23,12 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="test"  />
+                android:text="@string/cm"  />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="test" />
+                android:text="@string/inch" />
 
         </LinearLayout>
 
@@ -39,7 +44,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="width of fabric"/>
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="@dimen/Textview_margin"
+                    android:text="@string/width_of_fabrick"/>
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -57,6 +64,20 @@
 
         </LinearLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <fragment
+            android:name="com.magnus.oskar.quiltingcalc.AddFragment"
+            android:id="@+id/add_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            tools:layout="@layout/fragment_add" />
     </LinearLayout>
 
 </RelativeLayout>

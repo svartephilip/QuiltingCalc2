@@ -23,4 +23,7 @@
     <string name="textView_string">0 cm\n0 m\n0 inches\n0 feet\n0 yard\n0 rational inch\n0 rational feet\n0 rational yard</string>
     <string name="title_activity_back_bat">BackBatActivity</string>
     <string name="action_settings">Settings</string>
+    <string name="cm">cm</string>
+    <string name="inch">inch</string>
+    <string name="width_of_fabrick">Width of fabric</string>
 </resources>
