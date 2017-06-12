@@ -54,11 +54,11 @@
                 android:id="@+id/menu" />
 
             <fragment
-                android:name="com.magnus.oskar.quiltingcalc.ConverterActivityRationalFragment"
-                android:id="@+id/editText_fragment"
+                android:name="com.magnus.oskar.quiltingcalc.ConverterActivityDecimalFragment"
+                android:id="@+id/fragment_decimal"
                 android:layout_width="@dimen/EditText_Width"
                 android:layout_height="match_parent"
-                tools:layout="@layout/fragment_rational"/>
+                tools:layout="@layout/fragment_decimal"/>
 
         </LinearLayout>
 
@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="right">
+            android:gravity="end">
 
             <Button
                 android:layout_width="wrap_content"
