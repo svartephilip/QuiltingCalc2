@@ -1,4 +1,4 @@
-package com.magnus.oskar.quiltingcalc.math;
+package com.magnus.oskar.quiltingcalc.calculations;
 
 /**
  * Created by mhauk on 14.04.2017.

@@ -1,6 +1,4 @@
-package com.magnus.oskar.quiltingcalc.math;
-
-import com.magnus.oskar.quiltingcalc.math.Fractions;
+package com.magnus.oskar.quiltingcalc.calculations;
 
 import java.text.DecimalFormat;
 

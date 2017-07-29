@@ -1,6 +1,4 @@
-package com.magnus.oskar.quiltingcalc.math;
-
-import com.magnus.oskar.quiltingcalc.math.Conversion;
+package com.magnus.oskar.quiltingcalc.calculations;
 
 /**
  * Created by mhauk on 5/29/2017.

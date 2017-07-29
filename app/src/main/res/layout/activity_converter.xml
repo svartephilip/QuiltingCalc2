@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.magnus.oskar.quiltingcalc.ConverterActivity">
+    tools:context="com.magnus.oskar.quiltingcalc.activities.ConverterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,12 +53,12 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/menu" />
 
-            <fragment
-                android:name="com.magnus.oskar.quiltingcalc.ConverterActivityDecimalFragment"
-                android:id="@+id/fragment_decimal"
+            <FrameLayout
+                android:id="@+id/contentFragment"
                 android:layout_width="@dimen/EditText_Width"
-                android:layout_height="match_parent"
-                tools:layout="@layout/fragment_decimal"/>
+                android:layout_height="match_parent"/>
+
+
 
         </LinearLayout>
 
@@ -85,7 +85,7 @@
         android:layout_centerHorizontal="true">
 
         <fragment
-            android:name="com.magnus.oskar.quiltingcalc.AddFragment"
+            android:name="com.magnus.oskar.quiltingcalc.fragments.AddFragment"
             android:id="@+id/add_fragment"
             android:layout_width="match_parent"
             android:layout_height="50dp"
