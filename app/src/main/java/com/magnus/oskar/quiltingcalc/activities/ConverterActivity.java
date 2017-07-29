@@ -4,25 +4,19 @@ package com.magnus.oskar.quiltingcalc.activities;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.magnus.oskar.quiltingcalc.PassData;
 import com.magnus.oskar.quiltingcalc.R;
-import com.magnus.oskar.quiltingcalc.calculations.Conversion;
-import com.magnus.oskar.quiltingcalc.calculations.Fractions;
 import com.magnus.oskar.quiltingcalc.fragments.ConverterActivityDecimalFragment;
 import com.magnus.oskar.quiltingcalc.fragments.ConverterActivityRationalFragment;
 
-import java.text.DecimalFormat;
-
-public class ConverterActivity extends AppCompatActivity implements ConverterActivityDecimalFragment.DecimalDataListener {
+public class ConverterActivity extends AppCompatActivity implements PassData {
 
     private Button btCalc;
     private Spinner dropMenu;
@@ -78,39 +72,7 @@ public class ConverterActivity extends AppCompatActivity implements ConverterAct
 
     //get called by fragment
     @Override
-    public void decimalData(EditText data) {
-        String s = "";
-
-        String txtField = data.getText().toString();
-        double toConvert = Double.parseDouble(txtField);
-
-        Conversion con = new Conversion();
-
-        //spinner decide what to do based on a string
-        switch(dropMenu.getSelectedItem().toString()) {
-            case "cm":
-                con.setCm(toConvert);
-                s = con.toString();
-                break;
-            case "m":
-                con.setMeters(toConvert);
-                s =  con.toString();
-                break;
-            case "inch":
-                con.setInch(toConvert);
-                s =  con.toString();
-                break;
-            case "feet":
-                con.setFeet(toConvert);
-                s =  con.toString();
-                break;
-            case "yard":
-                con.setYard(toConvert);
-                s =  con.toString();
-                break;
-            default:
-                break;
-        }
-        txtConverted.setText(s);
+    public void dataPlaceholder(String data) {
+        txtConverted.setText(data);
     }
 }

@@ -10,32 +10,33 @@ import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
+import com.magnus.oskar.quiltingcalc.PassData;
 import com.magnus.oskar.quiltingcalc.R;
+import com.magnus.oskar.quiltingcalc.calculations.Conversion;
 
 /**
  * Created by ohauk on 5/29/2017.
  */
 
-public class ConverterActivityDecimalFragment extends Fragment {
+public class ConverterActivityDecimalFragment extends Fragment{
 
     private static EditText decimalInput;
     private Button calculate;
+    private Spinner dropMenu;
 
     public ConverterActivityDecimalFragment() {
         //supposed to be empty
     }
 
-    public interface DecimalDataListener {
-        public void decimalData(EditText data);
-    }
 
-    DecimalDataListener passData;
+    PassData passData;
 
     @Override
     public void onAttach(Activity a) {
         super.onAttach(a);
-        passData = (DecimalDataListener) a;
+        passData = (PassData) a;
     }
 
     @Override
@@ -45,6 +46,7 @@ public class ConverterActivityDecimalFragment extends Fragment {
         calculate = (Button) getActivity().findViewById(R.id.calculate);
 
         decimalInput = (EditText) view.findViewById(R.id.editText_decimal);
+        dropMenu = (Spinner) getActivity().findViewById(R.id.menu);
 
         calculate.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -57,9 +59,47 @@ public class ConverterActivityDecimalFragment extends Fragment {
     }
 
     public void data(View v) {
+
+        String s = "";
+
         if(TextUtils.isEmpty(decimalInput.getText().toString())) {
+            s = getString(R.string.textView_string);
+            passData.dataPlaceholder(s);
             return;
         }
-        passData.decimalData(decimalInput);
+
+
+        String txtField = decimalInput.getText().toString();
+        double toConvert = Double.parseDouble(txtField);
+
+        Conversion con = new Conversion();
+
+        //spinner decide what to do based on a string
+        switch(dropMenu.getSelectedItem().toString()) {
+            case "cm":
+                con.setCm(toConvert);
+                s = con.toString();
+                break;
+            case "m":
+                con.setMeters(toConvert);
+                s =  con.toString();
+                break;
+            case "inch":
+                con.setInch(toConvert);
+                s =  con.toString();
+                break;
+            case "feet":
+                con.setFeet(toConvert);
+                s =  con.toString();
+                break;
+            case "yard":
+                con.setYard(toConvert);
+                s =  con.toString();
+                break;
+            default:
+                s = getString(R.string.textView_string);
+                break;
+        }
+        passData.dataPlaceholder(s);
     }
 }
