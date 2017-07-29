@@ -23,7 +23,7 @@ import com.magnus.oskar.quiltingcalc.fragments.ConverterActivityRationalFragment
 import java.text.DecimalFormat;
 
 public class ConverterActivity extends AppCompatActivity implements ConverterActivityDecimalFragment.DecimalDataListener {
-    private EditText field;
+
     private Button btCalc;
     private Spinner dropMenu;
     private TextView txtConverted;
@@ -74,42 +74,6 @@ public class ConverterActivity extends AppCompatActivity implements ConverterAct
                 return;
             }
         });
-    }
-
-    public void btClicked() {
-        String s = "";
-
-        String txtField = field.getText().toString();
-        double toConvert = Double.parseDouble(txtField);
-
-        Conversion con = new Conversion();
-
-        //spinner decide what to do based on a string
-        switch(dropMenu.getSelectedItem().toString()) {
-            case "cm":
-                con.setCm(toConvert);
-                s = con.toString();
-                break;
-            case "m":
-                con.setMeters(toConvert);
-                s =  con.toString();
-                break;
-            case "inch":
-                con.setInch(toConvert);
-                s =  con.toString();
-                break;
-            case "feet":
-                con.setFeet(toConvert);
-                s =  con.toString();
-                break;
-            case "yard":
-                con.setYard(toConvert);
-                s =  con.toString();
-                break;
-            default:
-                break;
-        }
-        txtConverted.setText(s);
     }
 
     //get called by fragment
