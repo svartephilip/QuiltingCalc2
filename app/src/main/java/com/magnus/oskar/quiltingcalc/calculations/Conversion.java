@@ -8,13 +8,13 @@ import java.text.DecimalFormat;
 
 public class Conversion {
     // Data fields
-    private double cm, meters, inch, feet, yard;
-    private Fractions rationalInch, rationalFeet, rationalYard;
+    protected double cm, meters, inch, feet, yard;
+    protected Fractions rationalInch, rationalFeet, rationalYard;
 
     // Constants
-    private final double INCHTOCMRATIO=2.54;
-    private final double FEETTOINCHRATIO=12; //one (1) feet = twelve (12) inches
-    private final double FEETTOYARDRATIO=3; // one (1) yard = three (3) feet
+    protected final double INCHTOCMRATIO=2.54;
+    protected final double FEETTOINCHRATIO=12; //one (1) feet = twelve (12) inches
+    protected final double FEETTOYARDRATIO=3; // one (1) yard = three (3) feet
 
     DecimalFormat f = new DecimalFormat("#0.##");
 
@@ -29,6 +29,17 @@ public class Conversion {
         rationalInch = new Fractions();
         rationalFeet = new Fractions();
         rationalYard = new Fractions();
+    }
+
+    public Conversion(Conversion newConversion) {
+        cm = newConversion.getCm();
+        meters = newConversion.getMeters();
+        inch = newConversion.getInch();
+        feet = newConversion.getFeet();
+        yard = newConversion.getYard();
+        rationalInch = newConversion.getRationalInch();
+        rationalFeet = newConversion.getRationalFeet();
+        rationalYard = newConversion.getRationalYard();
     }
 
     // Setters
@@ -88,14 +99,21 @@ public class Conversion {
         whole /= FEETTOINCHRATIO;
 
         rationalFeet.setRational(numerator, denominator * (int)FEETTOINCHRATIO, whole);
-        rationalFeet.addRational(f);
+        rationalFeet.add(f);
 
         f.setRational((int)(whole % FEETTOYARDRATIO), (int)FEETTOYARDRATIO, 0);
         whole /= FEETTOYARDRATIO;
+
         rationalYard.setRational(rationalFeet.getNumer(), rationalFeet.getDenom() * (int)FEETTOYARDRATIO, whole);
-        rationalYard.addRational(f);
+        rationalYard.add(f);
     }
+
+    public void setRationalInch(Fractions rationalNumber) {
+        setRationalInch(rationalNumber.getNumer(), rationalNumber.getDenom(), rationalNumber.getWhole());
+    }
+
     public void setRationalFeet(int numerator, int denominator, int whole) {
+
         rationalFeet.setDecimal(numerator, denominator, whole);
         rationalFeet.setRational(numerator, denominator, whole);
         feet = rationalFeet.getDecimal();
@@ -110,7 +128,7 @@ public class Conversion {
         f.setRational((int)(whole % FEETTOYARDRATIO), (int)FEETTOYARDRATIO, 0);
         whole /= FEETTOYARDRATIO;
         rationalYard.setRational(numerator, denominator * (int)FEETTOYARDRATIO, whole);
-        rationalYard.addRational(f);
+        rationalYard.add(f);
     }
     public void setRationalYard(int numerator, int denominator, int whole) {
         rationalYard.setDecimal(numerator, denominator, whole);
@@ -159,7 +177,7 @@ public class Conversion {
         return rationalYard;
     }
 
-    private void rational(double i, double f, double y) {
+    protected void rational(double i, double f, double y) {
         rationalInch.setRational(i);
         rationalFeet.setRational(f);
         rationalYard.setRational(y);
