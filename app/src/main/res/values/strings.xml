@@ -32,9 +32,9 @@
     <string name="overage">Overage</string>
     <string name="width_inch">Width (inch)</string>
     <string name="length_inch">Length (inch)</string>
-    <string name="yard">"?" (yard)</string>
+    <string name="yard">needed length (yard)</string>
     <string name="width_cm">Width (cm)</string>
     <string name="length_cm">Length (cm)</string>
-    <string name="m">"?" (m)</string>
+    <string name="m">needed length (m)</string>
     <string name="recalc">Recalculate</string>
 </resources>

@@ -126,7 +126,8 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/CalcBtn_Height"
-                android:text="@string/calc" />
+                android:text="@string/calc"
+                android:id="@+id/calculate_bt"/>
 
         </LinearLayout>
 

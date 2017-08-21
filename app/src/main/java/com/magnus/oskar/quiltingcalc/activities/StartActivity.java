@@ -10,6 +10,10 @@ import com.magnus.oskar.quiltingcalc.R;
 
 public class StartActivity extends AppCompatActivity {
 
+    Button btFab;
+    Button btBatting;
+    Button btPiece;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +22,7 @@ public class StartActivity extends AppCompatActivity {
 
 
         //set up the button
-        Button btFab = (Button)findViewById(R.id.fabric);
+        btFab = (Button)findViewById(R.id.fabric);
         btFab.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -26,7 +30,7 @@ public class StartActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        Button btBatting = (Button)findViewById(R.id.backing);
+        btBatting = (Button)findViewById(R.id.backing);
         btBatting.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -35,12 +39,12 @@ public class StartActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        Button btPiece = (Button)findViewById(R.id.piece);
+        btPiece = (Button)findViewById(R.id.piece);
         btPiece.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 //need the activity
-                Intent i = new Intent(StartActivity.this, ConverterActivity.class);
+                Intent i = new Intent(StartActivity.this, PieceCountActivity.class);
                 startActivity(i);
             }
         });
