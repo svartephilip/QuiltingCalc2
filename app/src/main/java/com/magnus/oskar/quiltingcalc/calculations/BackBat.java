@@ -108,7 +108,6 @@ public class BackBat extends Conversion {
         Conversion placeholderWidth = new Conversion(width);
 
         // Add in the overage
-        // Somehow width and length get altered here
         placeholderWidth.setCm(placeholderWidth.getCm() + (overage.getCm() * 2));
         placeholderLength.setCm(placeholderLength.getCm() + (overage.getCm() * 2));
 
