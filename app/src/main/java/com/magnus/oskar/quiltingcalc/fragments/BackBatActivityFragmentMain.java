@@ -1,7 +1,6 @@
 package com.magnus.oskar.quiltingcalc.fragments;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -16,17 +15,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.magnus.oskar.quiltingcalc.BackBatDataPasser;
-import com.magnus.oskar.quiltingcalc.PassData;
 import com.magnus.oskar.quiltingcalc.R;
-import com.magnus.oskar.quiltingcalc.activities.PieceCountActivity;
-import com.magnus.oskar.quiltingcalc.activities.StartActivity;
 import com.magnus.oskar.quiltingcalc.calculations.BackBat;
 import com.magnus.oskar.quiltingcalc.calculations.Conversion;
 
-import static com.magnus.oskar.quiltingcalc.R.array.units;
-
 /**
- * A placeholder fragment containing a simple view.
+ * Created by Magnus on 21.08.2017.
  */
 public class BackBatActivityFragmentMain extends Fragment {
 
@@ -37,12 +31,6 @@ public class BackBatActivityFragmentMain extends Fragment {
 
     public BackBatActivityFragmentMain() {
         //empty
-    }
-
-    @Override
-    public void onAttach(Activity a) {
-        super.onAttach(a);
-        passData = (BackBatDataPasser) a;
     }
 
     @Override
@@ -87,7 +75,7 @@ public class BackBatActivityFragmentMain extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                return;
+                // Empty
             }
         });
 

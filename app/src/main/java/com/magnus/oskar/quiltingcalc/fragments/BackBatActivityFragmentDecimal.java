@@ -5,11 +5,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.magnus.oskar.quiltingcalc.BackBatDataPasser;
-import com.magnus.oskar.quiltingcalc.PassData;
 import com.magnus.oskar.quiltingcalc.R;
 import com.magnus.oskar.quiltingcalc.calculations.Conversion;
 

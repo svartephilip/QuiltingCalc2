@@ -1,15 +1,10 @@
 package com.magnus.oskar.quiltingcalc.activities;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.ArrayAdapter;
 
 import com.magnus.oskar.quiltingcalc.BackBatDataPasser;
-import com.magnus.oskar.quiltingcalc.PassData;
 import com.magnus.oskar.quiltingcalc.R;
 import com.magnus.oskar.quiltingcalc.calculations.BackBat;
 import com.magnus.oskar.quiltingcalc.calculations.Conversion;
