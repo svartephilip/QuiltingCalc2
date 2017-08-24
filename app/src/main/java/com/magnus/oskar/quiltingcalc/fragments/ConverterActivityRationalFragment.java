@@ -63,10 +63,11 @@ public class ConverterActivityRationalFragment extends Fragment {
     public void data(View v) {
 
         String s = "";
+        String[] data = {s};
 
         if(TextUtils.isEmpty(denominator.getText().toString()) || TextUtils.isEmpty(numerator.getText().toString())) {
             s = getString(R.string.textView_string);
-            passData.dataPlaceholder(s);
+            passData.dataPlaceholder(data);
             return;
         } else if(TextUtils.isEmpty(whole.getText().toString())) {
             whole.setText("0");
@@ -96,6 +97,6 @@ public class ConverterActivityRationalFragment extends Fragment {
                 s = getString(R.string.textView_string);
                 break;
         }
-        passData.dataPlaceholder(s);
+        passData.dataPlaceholder(data);
     }
 }

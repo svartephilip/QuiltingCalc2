@@ -1,7 +1,7 @@
 package com.magnus.oskar.quiltingcalc.calculations;
 
 /**
- * Created by mhauk on 5/29/2017.
+ * Created by Magnus on 5/29/2017.
  */
 
 public class BackBat extends Conversion {
@@ -13,13 +13,13 @@ public class BackBat extends Conversion {
 
 
     //constructors
-    BackBat() {
+    public BackBat() {
         width = new Conversion();
         length = new Conversion();
         fWidth = new Conversion();
         overage = new Conversion();
     }
-    BackBat(Conversion newWidth, Conversion newLength, Conversion newfWidth, Conversion newOverage) {
+    public BackBat(Conversion newWidth, Conversion newLength, Conversion newfWidth, Conversion newOverage) {
         width = newWidth;
         length = newLength;
         fWidth = newfWidth;

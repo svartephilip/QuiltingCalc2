@@ -18,7 +18,6 @@ import com.magnus.oskar.quiltingcalc.fragments.ConverterActivityRationalFragment
 
 public class ConverterActivity extends AppCompatActivity implements PassData {
 
-    private Button btCalc;
     private Spinner dropMenu;
     private TextView txtConverted;
 
@@ -28,7 +27,6 @@ public class ConverterActivity extends AppCompatActivity implements PassData {
         setContentView(R.layout.activity_converter);
 
         //finding the elements
-        btCalc = (Button) findViewById(R.id.calculate);
         dropMenu = (Spinner) findViewById(R.id.menu);
         txtConverted = (TextView) findViewById(R.id.view1);
 
@@ -72,7 +70,7 @@ public class ConverterActivity extends AppCompatActivity implements PassData {
 
     //get called by fragment
     @Override
-    public void dataPlaceholder(String data) {
-        txtConverted.setText(data);
+    public void dataPlaceholder(String[] data) {
+        txtConverted.setText(data[0]);
     }
 }

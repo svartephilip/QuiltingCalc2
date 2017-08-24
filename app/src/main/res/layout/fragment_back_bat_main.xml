@@ -79,7 +79,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                android:minWidth="@dimen/EditText_minWidth"/>
+                android:minWidth="@dimen/EditText_minWidth"
+                android:id="@+id/editText_width"/>
         </LinearLayout>
 
         <LinearLayout
@@ -97,7 +98,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                android:minWidth="@dimen/EditText_minWidth"/>
+                android:minWidth="@dimen/EditText_minWidth"
+                android:id="@+id/editText_length"/>
         </LinearLayout>
 
         <LinearLayout
@@ -115,7 +117,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                android:minWidth="@dimen/EditText_minWidth"/>
+                android:minWidth="@dimen/EditText_minWidth"
+                android:id="@+id/editText_overage"/>
         </LinearLayout>
 
         <LinearLayout

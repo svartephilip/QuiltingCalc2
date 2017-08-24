@@ -5,5 +5,5 @@ package com.magnus.oskar.quiltingcalc;
  */
 
 public interface PassData {
-    void dataPlaceholder(String data);
+    void dataPlaceholder(String[] data);
 }

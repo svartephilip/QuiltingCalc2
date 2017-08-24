@@ -5,18 +5,23 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.magnus.oskar.quiltingcalc.BackBatDataPasser;
 import com.magnus.oskar.quiltingcalc.PassData;
 import com.magnus.oskar.quiltingcalc.R;
 import com.magnus.oskar.quiltingcalc.activities.PieceCountActivity;
 import com.magnus.oskar.quiltingcalc.activities.StartActivity;
+import com.magnus.oskar.quiltingcalc.calculations.BackBat;
+import com.magnus.oskar.quiltingcalc.calculations.Conversion;
 
 import static com.magnus.oskar.quiltingcalc.R.array.units;
 
@@ -25,9 +30,10 @@ import static com.magnus.oskar.quiltingcalc.R.array.units;
  */
 public class BackBatActivityFragmentMain extends Fragment {
 
-    Spinner dropMenu;
-    PassData passData;
-    Button btCalc;
+    private Spinner dropMenu;
+    private BackBatDataPasser passData;
+    private Button btCalc;
+    private EditText editWidth, editLength, editOverage;
 
     public BackBatActivityFragmentMain() {
         //empty
@@ -36,7 +42,7 @@ public class BackBatActivityFragmentMain extends Fragment {
     @Override
     public void onAttach(Activity a) {
         super.onAttach(a);
-        passData = (PassData) a;
+        passData = (BackBatDataPasser) a;
     }
 
     @Override
@@ -46,6 +52,9 @@ public class BackBatActivityFragmentMain extends Fragment {
 
         dropMenu = (Spinner) view.findViewById(R.id.back_bat_spinner);
         btCalc = (Button) view.findViewById(R.id.calculate_bt);
+        editWidth = (EditText) view.findViewById(R.id.editText_width);
+        editLength = (EditText) view.findViewById(R.id.editText_length);
+        editOverage = (EditText) view.findViewById(R.id.editText_overage);
 
         ArrayAdapter<CharSequence> units = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.units,
                 android.R.layout.simple_spinner_item);
@@ -85,11 +94,33 @@ public class BackBatActivityFragmentMain extends Fragment {
         btCalc.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                // Call interface method
-                passData.dataPlaceholder("1");
+                if(TextUtils.isEmpty(editWidth.getText().toString()) && TextUtils.isEmpty(editLength.getText().toString()) && TextUtils.isEmpty(editOverage.getText().toString())) {
+                    return;
+                }
+
+                BackBat data = new BackBat();
+
+                //also here the values need to be differentiated
+                String txtField = editWidth.getText().toString();
+                Conversion conWidth = new Conversion();
+                conWidth.setCm(Double.parseDouble(txtField));
+
+                txtField = editLength.getText().toString();
+                Conversion conLength = new Conversion();
+                conLength.setCm(Double.parseDouble(txtField));
+
+                txtField = editOverage.getText().toString();
+                Conversion conOverage = new Conversion();
+                conOverage.setCm(Double.parseDouble(txtField));
+
+                String[] s = {"1"};
+
+                passData.calculationPassing(data);
+                passData.dataPlaceholder(s);
             }
         });
 
         return view;
     }
+
 }

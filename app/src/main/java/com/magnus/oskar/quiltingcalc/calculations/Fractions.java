@@ -1,7 +1,7 @@
 package com.magnus.oskar.quiltingcalc.calculations;
 
 /**
- * Created by mhauk on 14.04.2017.
+ * Created by Magnus on 14.04.2017.
  */
 
 public class Fractions {
@@ -32,7 +32,7 @@ public class Fractions {
     }
 
     public void Fractions(int newNumerator, int newDenominator, int newWhole) {
-        whole = newWhole + ((int)(newNumerator / newDenominator));
+        whole = newWhole + (newNumerator / newDenominator);
         denominator = newDenominator;
         numerator = newNumerator % newDenominator;
         setDecimal();
