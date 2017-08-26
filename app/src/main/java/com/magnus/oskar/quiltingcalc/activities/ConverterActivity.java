@@ -25,17 +25,17 @@ public class ConverterActivity extends AppCompatActivity implements PassData {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_converter);
 
-        //finding the elements
+        // Finding the elements
         dropMenu = (Spinner) findViewById(R.id.menu);
         txtConverted = (TextView) findViewById(R.id.view1);
 
-        //set an adapter to the spinner
+        // Set an adapter to the spinner
         ArrayAdapter<CharSequence> units = ArrayAdapter.createFromResource(this, R.array.units,
                         android.R.layout.simple_spinner_item);
         units.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dropMenu.setAdapter(units);
 
-        //set up fragments
+        // Set up fragments dependent on dropMenu
         dropMenu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -67,7 +67,7 @@ public class ConverterActivity extends AppCompatActivity implements PassData {
         });
     }
 
-    //get called by fragment
+    // Get called by fragment
     @Override
     public void dataPlaceholder(String[] data) {
         txtConverted.setText(data[0]);

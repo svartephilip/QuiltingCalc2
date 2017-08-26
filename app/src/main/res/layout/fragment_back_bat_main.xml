@@ -16,15 +16,11 @@
             android:layout_height="wrap_content"
             android:gravity="center">
 
-            <Button
+            <ToggleButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/cm"  />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/inch" />
+                android:textOff="@string/cm"
+                android:textOn="@string/inch"/>
 
         </LinearLayout>
 

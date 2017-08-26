@@ -27,10 +27,10 @@ public class ConverterActivityDecimalFragment extends Fragment{
     private Spinner dropMenu;
 
     public ConverterActivityDecimalFragment() {
-        //supposed to be empty
+        // Supposed to be empty
     }
 
-
+    // Reference to the interface
     PassData passData;
 
     @Override
@@ -43,11 +43,13 @@ public class ConverterActivityDecimalFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_decimal, container, false);
 
-        calculate = (Button) getActivity().findViewById(R.id.calculate);
-
+        // get Views from activity and reference to editText
         decimalInput = (EditText) view.findViewById(R.id.editText_decimal);
+
+        calculate = (Button) getActivity().findViewById(R.id.calculate);
         dropMenu = (Spinner) getActivity().findViewById(R.id.menu);
 
+        // Listener on the button
         calculate.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +60,9 @@ public class ConverterActivityDecimalFragment extends Fragment{
         return view;
     }
 
+    // Used by the button
+    // Converts the values in the EditText
+    // Returns a String value
     public void data(View v) {
 
         String s = "";

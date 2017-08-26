@@ -14,6 +14,7 @@ import com.magnus.oskar.quiltingcalc.R;
  * Created by ohauk on 5/29/2017.
  */
 
+// Display adds in the activities
 public class AddFragment extends Fragment {
 
     private static final String TAG = "AddFragment";

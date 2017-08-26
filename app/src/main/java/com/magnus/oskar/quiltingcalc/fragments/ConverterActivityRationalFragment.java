@@ -26,10 +26,11 @@ public class ConverterActivityRationalFragment extends Fragment {
     private Button calculate;
     private Spinner dropMenu;
 
+    // Reference to the interface
     PassData passData;
 
     public ConverterActivityRationalFragment() {
-        //supposed to be empty
+        // Supposed to be empty
     }
 
     @Override
@@ -42,15 +43,17 @@ public class ConverterActivityRationalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rational, container, false);
 
+        // Connections to datafields
         whole = (EditText) view.findViewById(R.id.editText_whole);
         numerator = (EditText) view.findViewById(R.id.editText_numerator);
         denominator = (EditText) view.findViewById(R.id.editText_denominator);
 
+        // Get views from activity
         calculate = (Button) getActivity().findViewById(R.id.calculate);
         dropMenu = (Spinner) getActivity().findViewById(R.id.menu);
 
+        // Listener on the button
         calculate.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 data(v);
@@ -58,13 +61,17 @@ public class ConverterActivityRationalFragment extends Fragment {
         });
 
         return view;
-    }
+    }//onCreateView()
 
+    // Used by the button
+    // Converts the values in the EditTexts
+    // Returns a String value
     public void data(View v) {
 
         String s = "";
         String[] data = {s};
 
+        // Exeptionhandling
         if(TextUtils.isEmpty(denominator.getText().toString()) || TextUtils.isEmpty(numerator.getText().toString())) {
             s = getString(R.string.textView_string);
             passData.dataPlaceholder(data);
@@ -73,13 +80,14 @@ public class ConverterActivityRationalFragment extends Fragment {
             whole.setText("0");
         }
 
+        // Convert EditText values to int
         int wholeInt = Integer.parseInt(whole.getText().toString());
         int numerInt = Integer.parseInt(numerator.getText().toString());
         int denomInt = Integer.parseInt(denominator.getText().toString());
 
         Conversion con = new Conversion();
 
-        //spinner decide what to do based on a string
+        // Spinner decide what to do based on a string
         switch(dropMenu.getSelectedItem().toString()) {
             case "inch fraction":
                 con.setRationalInch(numerInt, denomInt, wholeInt);
@@ -97,6 +105,6 @@ public class ConverterActivityRationalFragment extends Fragment {
                 s = getString(R.string.textView_string);
                 break;
         }
-        passData.dataPlaceholder(data);
-    }
-}
+        passData.dataPlaceholder(s);
+    }//data()
+}//class
