@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -63,14 +62,14 @@ public class ConverterActivity extends AppCompatActivity implements PassData {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                return;
+                // Empty
             }
         });
     }
 
     // Get called by fragment
     @Override
-    public void dataPlaceholder(String data) {
-        txtConverted.setText(data);
+    public void dataPlaceholder(String[] data) {
+        txtConverted.setText(data[0]);
     }
 }

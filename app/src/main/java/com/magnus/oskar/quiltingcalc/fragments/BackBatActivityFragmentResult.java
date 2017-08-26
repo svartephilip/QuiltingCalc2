@@ -40,7 +40,8 @@ public class BackBatActivityFragmentResult extends Fragment{
             @Override
             public void onClick(View v){
                 // Call interface method
-                passData.dataPlaceholder("0");
+                String[] data = {"0"};
+                passData.dataPlaceholder(data);
             }
         });
 

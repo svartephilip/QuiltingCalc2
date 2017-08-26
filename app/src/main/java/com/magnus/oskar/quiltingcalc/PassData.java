@@ -5,5 +5,5 @@ package com.magnus.oskar.quiltingcalc;
  */
 //used for passing data from fragment to activity/fragment
 public interface PassData {
-    void dataPlaceholder(String data);
+    void dataPlaceholder(String[] data);
 }

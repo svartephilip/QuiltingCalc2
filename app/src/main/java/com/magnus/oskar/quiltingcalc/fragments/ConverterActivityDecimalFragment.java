@@ -67,9 +67,11 @@ public class ConverterActivityDecimalFragment extends Fragment{
 
         String s = "";
 
+        String[] data = {s};
+
         if(TextUtils.isEmpty(decimalInput.getText().toString())) {
             s = getString(R.string.textView_string);
-            passData.dataPlaceholder(s);
+            passData.dataPlaceholder(data);
             return;
         }
 
@@ -105,6 +107,6 @@ public class ConverterActivityDecimalFragment extends Fragment{
                 s = getString(R.string.textView_string);
                 break;
         }
-        passData.dataPlaceholder(s);
+        passData.dataPlaceholder(data);
     }
 }
