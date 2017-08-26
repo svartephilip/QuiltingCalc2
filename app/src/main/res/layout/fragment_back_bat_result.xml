@@ -95,6 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/m_numbers"
-        android:text="@string/recalc"/>
+        android:text="@string/recalc"
+        android:id="@+id/recalculate_bt"/>
 
 </RelativeLayout>
