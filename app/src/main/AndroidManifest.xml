@@ -17,7 +17,7 @@
         </activity>
         <activity android:name=".activities.ConverterActivity" />
         <activity
-            android:name=".activities.BackBatActivity"
+            android:name=".activities.BackBatMainActivity"
             android:label="@string/title_activity_back_bat"
             android:theme="@style/AppTheme.NoActionBar" />
 
@@ -25,7 +25,11 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".activities.PieceCountActivity"></activity>
+        <activity android:name=".activities.PieceCountActivity" />
+        <activity
+            android:name=".activities.BackBatResultActivity"
+            android:label="@string/title_activity_back_bat_result"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
