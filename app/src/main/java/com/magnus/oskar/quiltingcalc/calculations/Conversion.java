@@ -146,8 +146,6 @@ public class Conversion {
         numerator *= FEETTOINCHRATIO;
         whole *= FEETTOINCHRATIO;
         rationalInch.setRational(numerator, denominator, whole);
-
-
     }
 
     // Getters

@@ -67,13 +67,12 @@ public class ConverterActivityRationalFragment extends Fragment {
     // Converts the values in the EditTexts
     // Returns a String value
     public void data(View v) {
-
-        String s = "";
-        String[] data = {s};
+        Conversion s = new Conversion();
+        Conversion[] data = {s};
 
         // Exeptionhandling
         if(TextUtils.isEmpty(denominator.getText().toString()) || TextUtils.isEmpty(numerator.getText().toString())) {
-            s = getString(R.string.textView_string);
+            s.setCm(0);
             passData.dataPlaceholder(data);
             return;
         } else if(TextUtils.isEmpty(whole.getText().toString())) {
@@ -85,26 +84,22 @@ public class ConverterActivityRationalFragment extends Fragment {
         int numerInt = Integer.parseInt(numerator.getText().toString());
         int denomInt = Integer.parseInt(denominator.getText().toString());
 
-        Conversion con = new Conversion();
 
         // Spinner decide what to do based on a string
         switch(dropMenu.getSelectedItem().toString()) {
             case "inch fraction":
-                con.setRationalInch(numerInt, denomInt, wholeInt);
-                s =  con.toString();
+                s.setRationalInch(numerInt, denomInt, wholeInt);
                 break;
             case "feet fraction":
-                con.setRationalFeet(numerInt, denomInt, wholeInt);
-                s =  con.toString();
+                s.setRationalFeet(numerInt, denomInt, wholeInt);
                 break;
             case "yard fraction":
-                con.setRationalYard(numerInt, denomInt, wholeInt);
-                s =  con.toString();
+                s.setRationalYard(numerInt, denomInt, wholeInt);
                 break;
             default:
-                s = getString(R.string.textView_string);
+                s.setCm(0);
                 break;
         }
-        passData.dataPlaceholder(s);
+        passData.dataPlaceholder(data);
     }//data()
 }//class

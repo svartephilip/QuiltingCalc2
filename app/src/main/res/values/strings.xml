@@ -37,4 +37,5 @@
     <string name="length_cm">Length (cm)</string>
     <string name="m">needed length (m)</string>
     <string name="recalc">Recalculate</string>
+    <string name="title_activity_back_bat_result">BackBatResultActivity</string>
 </resources>

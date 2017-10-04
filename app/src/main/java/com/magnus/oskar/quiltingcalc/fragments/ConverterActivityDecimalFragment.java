@@ -65,12 +65,12 @@ public class ConverterActivityDecimalFragment extends Fragment{
     // Returns a String value
     public void data(View v) {
 
-        String s = "";
+        Conversion s = new Conversion();
 
-        String[] data = {s};
+        Conversion[] data = {s};
 
         if(TextUtils.isEmpty(decimalInput.getText().toString())) {
-            s = getString(R.string.textView_string);
+            s.setCm(0);
             passData.dataPlaceholder(data);
             return;
         }
@@ -79,32 +79,26 @@ public class ConverterActivityDecimalFragment extends Fragment{
         String txtField = decimalInput.getText().toString();
         double toConvert = Double.parseDouble(txtField);
 
-        Conversion con = new Conversion();
 
         //spinner decide what to do based on a string
         switch(dropMenu.getSelectedItem().toString()) {
             case "cm":
-                con.setCm(toConvert);
-                s = con.toString();
+                s.setCm(toConvert);
                 break;
             case "m":
-                con.setMeters(toConvert);
-                s =  con.toString();
+                s.setMeters(toConvert);
                 break;
             case "inch":
-                con.setInch(toConvert);
-                s =  con.toString();
+                s.setInch(toConvert);
                 break;
             case "feet":
-                con.setFeet(toConvert);
-                s =  con.toString();
+                s.setFeet(toConvert);
                 break;
             case "yard":
-                con.setYard(toConvert);
-                s =  con.toString();
+                s.setYard(toConvert);
                 break;
             default:
-                s = getString(R.string.textView_string);
+                s.setCm(0);
                 break;
         }
         passData.dataPlaceholder(data);

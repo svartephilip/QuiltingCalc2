@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.magnus.oskar.quiltingcalc.PassData;
 import com.magnus.oskar.quiltingcalc.R;
+import com.magnus.oskar.quiltingcalc.calculations.Conversion;
 import com.magnus.oskar.quiltingcalc.fragments.ConverterActivityDecimalFragment;
 import com.magnus.oskar.quiltingcalc.fragments.ConverterActivityRationalFragment;
 
@@ -69,7 +70,8 @@ public class ConverterActivity extends AppCompatActivity implements PassData {
 
     // Get called by fragment
     @Override
-    public void dataPlaceholder(String[] data) {
-        txtConverted.setText(data[0]);
+    public void dataPlaceholder(Conversion[] data) {
+        // Transform Conversion value to a string
+        txtConverted.setText(data[0].toString());
     }
 }
