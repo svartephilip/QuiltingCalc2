@@ -6,11 +6,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.magnus.oskar.quiltingcalc.PassData;
@@ -30,7 +33,9 @@ public class BackBatMainActivity extends AppCompatActivity implements PassData {
     private ToggleButton toggle;
     private EditText editWidth, editLength, editOverage;
 
-    public BackBat backBat;
+    private BackBat backBat;
+
+    private String[] units;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +49,39 @@ public class BackBatMainActivity extends AppCompatActivity implements PassData {
         editOverage = (EditText) findViewById(R.id.editText_overage);
         toggle = (ToggleButton) findViewById(R.id.toggle_bt);
 
+        units = getResources().getStringArray(R.array.units);
+
         // Set an adapter to the spinner
-        ArrayAdapter<CharSequence> units = ArrayAdapter.createFromResource(this, R.array.units,
-                android.R.layout.simple_spinner_item);
-        units.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        dropMenu.setAdapter(units);
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, units) {
+            @Override
+            public View getDropDownView(int position, View convertView, ViewGroup parent) {
+                View v;
+                // Change what is shown dependent on toggle
+                if(toggle.isChecked()) {
+                    if (position < 2 || position > 3) {
+                        TextView tv = new TextView(getContext());
+                        tv.setHeight(0);
+                        tv.setVisibility(View.GONE);
+                        v = tv;
+                    } else {
+                        v = super.getDropDownView(position, null, parent);
+                    }
+                } else {
+                    if (position > 1) {
+                        TextView tv = new TextView(getContext());
+                        tv.setHeight(0);
+                        tv.setVisibility(View.GONE);
+                        v = tv;
+                    } else {
+                        v = super.getDropDownView(position, null, parent);
+                    }
+                }
+                parent.setVerticalScrollBarEnabled(false);
+                return v;
+            }
+        };
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dropMenu.setAdapter(spinnerAdapter);
 
         // Set up fragments dependent on dropMenu
         dropMenu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -78,6 +111,17 @@ public class BackBatMainActivity extends AppCompatActivity implements PassData {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 // Empty
+            }
+        });
+
+        // Make dropMenu default selection depend on toggle
+        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked)
+                    dropMenu.setSelection(2);
+                else
+                    dropMenu.setSelection(0);
             }
         });
 
