@@ -35,8 +35,7 @@ public class BackBatResultActivity extends AppCompatActivity {
         btRecalc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(BackBatResultActivity.this, BackBatMainActivity.class);
-                startActivity(i);
+                finish();
             }
         });
 
