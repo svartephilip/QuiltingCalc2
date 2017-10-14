@@ -14,6 +14,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.magnus.oskar.quiltingcalc.PassData;
@@ -114,13 +115,14 @@ public class BackBatMainActivity extends AppCompatActivity implements PassData {
             }
         });
 
-        // Make dropMenu default selection depend on toggle
+        // Make default values depend on toggle
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked)
                     dropMenu.setSelection(2);
                 else
+
                     dropMenu.setSelection(0);
             }
         });
@@ -135,9 +137,8 @@ public class BackBatMainActivity extends AppCompatActivity implements PassData {
         String[] string = {editWidth.getText().toString(), editLength.getText().toString(), editOverage.getText().toString()};
 
         if(TextUtils.isEmpty(string[0]) && TextUtils.isEmpty(string[1]) && TextUtils.isEmpty(string[2])) {
-            backBat = new BackBat();
-            Intent i = new Intent(BackBatMainActivity.this, BackBatResultActivity.class);
-            startActivity(i);
+            Toast toast = Toast.makeText(this, "Fill all fields", Toast.LENGTH_SHORT);
+            toast.show();
             return;
         }
 

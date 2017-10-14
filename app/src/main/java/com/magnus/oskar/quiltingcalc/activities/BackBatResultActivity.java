@@ -19,6 +19,7 @@ public class BackBatResultActivity extends AppCompatActivity {
 
     Button btRecalc;
     TextView lengthIn, widthIn, yardage, lengthCm, widthCm, meters;
+    TextView widthMidIn, lengthMidIn, yardageMid, lengthMidCm, widthMidCm, metersMid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +33,18 @@ public class BackBatResultActivity extends AppCompatActivity {
 
         btRecalc = (Button) findViewById(R.id.recalculate_bt);
 
-        lengthIn = (TextView) findViewById(R.id.length_numbers);
-        lengthCm = (TextView) findViewById(R.id.length_cm_numbers);
-        widthIn = (TextView) findViewById(R.id.width_numbers);
-        widthCm = (TextView) findViewById(R.id.width_cm_numbers);
-        yardage = (TextView) findViewById(R.id.yard_numbers);
-        meters = (TextView) findViewById(R.id.m_numbers);
+        lengthIn = (TextView) findViewById(R.id.length_right);
+        lengthCm = (TextView) findViewById(R.id.length_cm_right);
+        widthIn = (TextView) findViewById(R.id.width_right);
+        widthCm = (TextView) findViewById(R.id.width_cm_right);
+        yardage = (TextView) findViewById(R.id.yard_right);
+        meters = (TextView) findViewById(R.id.m_right);
+        widthMidIn = (TextView) findViewById(R.id.width_middle);
+        widthMidCm = (TextView) findViewById(R.id.width_cm_middle);
+        lengthMidIn = (TextView) findViewById(R.id.length_middle);
+        lengthMidCm = (TextView) findViewById(R.id.length_cm_middle);
+        yardageMid = (TextView) findViewById(R.id.yard_middle);
+        metersMid = (TextView) findViewById(R.id.m_middle);
 
         String[] separateString = string.split(System.getProperty("line.separator"));
         // Get the values from the string
