@@ -2,57 +2,88 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/width_textView"
+        android:id="@+id/width_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/width_inch" />
 
     <TextView
-        android:id="@+id/width_numbers"
+        android:id="@+id/width_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="hei"/>
+
+
+    <TextView
+        android:id="@+id/width_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="numbers"
         android:layout_alignParentEnd="true"/>
 
     <TextView
-        android:id="@+id/length_textView"
+        android:id="@+id/length_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/length_inch"
-        android:layout_below="@id/width_textView"/>
+        android:layout_below="@id/width_left"/>
 
     <TextView
-        android:id="@+id/length_numbers"
+        android:id="@+id/length_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hei"
+        android:layout_below="@+id/width_middle"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/length_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="numbers"
         android:layout_alignParentEnd="true"
-        android:layout_below="@id/width_numbers"/>
+        android:layout_below="@id/width_right"/>
 
     <TextView
-        android:id="@+id/yard_textView"
+        android:id="@+id/yard_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/yard"
-        android:layout_below="@id/length_textView" />
+        android:layout_below="@id/length_left" />
 
     <TextView
-        android:id="@+id/yard_numbers"
+        android:id="@+id/yard_middle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/length_numbers"
+        android:text="hei"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/length_middle"/>
+
+    <TextView
+        android:id="@+id/yard_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/length_right"
         android:text="numbers"
         android:layout_alignParentEnd="true"/>
 
     <TextView
-        android:id="@+id/width_cm_textview"
+        android:id="@+id/width_cm_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/width_cm"
         android:layout_centerVertical="true"/>
+    <TextView
+        android:id="@+id/width_cm_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hei"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
 
     <TextView
-        android:id="@+id/width_cm_numbers"
+        android:id="@+id/width_cm_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -60,32 +91,48 @@
         android:layout_centerVertical="true"/>
 
     <TextView
-        android:id="@+id/length_cm_textview"
+        android:id="@+id/length_cm_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/width_cm_textview"
+        android:layout_below="@+id/width_cm_left"
         android:text="@string/length_cm"/>
 
     <TextView
-        android:id="@+id/length_cm_numbers"
+        android:id="@+id/length_cm_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hei"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/width_cm_middle"/>
+
+    <TextView
+        android:id="@+id/length_cm_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/width_cm_numbers"
+        android:layout_below="@+id/width_cm_left"
         android:text="numbers"/>
 
     <TextView
-        android:id="@+id/m_textview"
+        android:id="@+id/m_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/length_cm_textview"
+        android:layout_below="@+id/length_cm_left"
         android:text="@string/m"/>
 
     <TextView
-        android:id="@+id/m_numbers"
+        android:id="@+id/m_middle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/length_cm_numbers"
+        android:text="hei"
+        android:layout_below="@+id/length_cm_middle"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/m_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/length_cm_right"
         android:layout_alignParentEnd="true"
         android:text="numbers"/>
 
@@ -93,7 +140,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/m_numbers"
+        android:layout_below="@+id/m_right"
         android:text="@string/recalc"
         android:id="@+id/recalculate_bt"/>
 
