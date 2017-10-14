@@ -35,7 +35,7 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 //need the activity
-                Intent i = new Intent(StartActivity.this, BackBatActivity.class);
+                Intent i = new Intent(StartActivity.this, BackBatMainActivity.class);
                 startActivity(i);
             }
         });

@@ -18,9 +18,7 @@ import com.magnus.oskar.quiltingcalc.R;
 public class AddFragment extends Fragment {
 
     private static final String TAG = "AddFragment";
-
     private AdView mAdView;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

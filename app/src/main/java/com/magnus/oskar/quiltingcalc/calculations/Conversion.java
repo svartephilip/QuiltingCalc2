@@ -3,7 +3,7 @@ package com.magnus.oskar.quiltingcalc.calculations;
 import java.text.DecimalFormat;
 
 /**
- * Created by mhauk on 10.04.2017.
+ * Created by Magnus on 10.04.2017.
  */
 
 public class Conversion {
@@ -146,8 +146,6 @@ public class Conversion {
         numerator *= FEETTOINCHRATIO;
         whole *= FEETTOINCHRATIO;
         rationalInch.setRational(numerator, denominator, whole);
-
-
     }
 
     // Getters
