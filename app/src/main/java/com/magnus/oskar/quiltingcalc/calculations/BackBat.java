@@ -8,6 +8,7 @@ public class BackBat extends Conversion {
 
     private Conversion width, length, fWidth, overage;
     private Conversion neededLength = new Conversion();
+    private Conversion reverseNeededLength = new Conversion();
 
     private final double CMTOYARDRATIO = 36 * INCHTOCMRATIO; // the ratio between yard and centimeter
     private final double INCHTOYARDRATIO = 36;
@@ -45,6 +46,8 @@ public class BackBat extends Conversion {
     }
 
     private Conversion getNeededLength() { return neededLength; }
+
+    private Conversion getReverseNeededLength() { return reverseNeededLength; }
 
     // setters
     public void setWidth(Conversion newWidth) {
@@ -106,12 +109,14 @@ public class BackBat extends Conversion {
     public void findLengthCm () {
 
         //placeholder data
+        Conversion placeholderLength = new Conversion(length);
         Conversion placeholderFWidth = new Conversion(fWidth);
         Conversion placeholderWidth = new Conversion(width);
 
         // Add in the overage
         placeholderWidth.setCm(placeholderWidth.getCm() + (overage.getCm() * 2));
         neededLength.setCm(length.getCm() + (overage.getCm() * 2));
+        reverseNeededLength.setCm(width.getCm() + (overage.getCm() * 2));
 
         while(placeholderWidth.getCm() > placeholderFWidth.getCm()) {
 
@@ -120,9 +125,19 @@ public class BackBat extends Conversion {
             neededLength.setCm(neededLength.getCm() + neededLength.getCm());
             placeholderFWidth.setCm(placeholderFWidth.getCm() + placeholderWidth.getCm() + 2);
         }
+
+        placeholderFWidth.setCm(fWidth.getCm());
+
+        while(placeholderLength.getCm() > placeholderFWidth.getCm()) {
+
+            // Increment of one length per seam
+            // fWidth also increases to say when to stop
+            reverseNeededLength.setCm(reverseNeededLength.getCm() + reverseNeededLength.getCm());
+            placeholderFWidth.setCm(placeholderFWidth.getCm() + placeholderLength.getCm() + 2);
+        }
     }//findLengthCm
 
-    public Conversion findLengthInch() {
+    public void findLengthInch() {
 
         //placeholder data
         Conversion placeholderLength = new Conversion(length);
@@ -135,25 +150,35 @@ public class BackBat extends Conversion {
         // Add in the overage'
         placeholderWidth.setRationalInch(placeholderWidth.getRationalInch().add(overage.getRationalInch()));
 
-        placeholderLength.setRationalInch(placeholderLength.getRationalInch().add(overage.getRationalInch()));
+        neededLength.setRationalInch(length.getRationalInch().add(overage.getRationalInch()));
 
         while(placeholderWidth.getRationalInch().compare(placeholderFWidth.getRationalInch()) == 1) {
 
             // Increment of one length per seam
             // width also increases to say when to stop
-            placeholderLength.setRationalInch(placeholderLength.getRationalInch().add(length.getRationalInch()));
+            neededLength.setRationalInch(neededLength.getRationalInch().add(length.getRationalInch()));
 
             placeholderFWidth.getRationalInch().add(placeholderWidth.getRationalInch());
             placeholderFWidth.getRationalInch().add(1);
         }
 
-        return placeholderLength;
+        placeholderFWidth = new Conversion(fWidth);
+
+        while(placeholderLength.getRationalInch().compare(placeholderFWidth.getRationalInch()) == 1) {
+
+            // Increment of one length per seam
+            // width also increases to say when to stop
+            reverseNeededLength.setRationalInch(placeholderWidth.getRationalInch().add(width.getRationalInch()));
+
+            placeholderFWidth.getRationalInch().add(placeholderLength.getRationalInch());
+            placeholderFWidth.getRationalInch().add(1);
+        }
     }//findLengthInch
 
 
     public String toString() {
         return "Width: " + getWidth() + "\nLength: " + getLength() +
                 "\nfabric width: " + getFWidth() + "\noverage: " + getOverage() +
-                "Needed Length: "+ getNeededLength();
+                "\nNeeded Length: "+ getNeededLength() + "\nreverse: " + getReverseNeededLength();
     }
 }// class

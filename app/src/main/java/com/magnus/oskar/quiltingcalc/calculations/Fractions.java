@@ -11,14 +11,14 @@ public class Fractions {
 
 
     //constructors
-    public void Fractions() {
+    public Fractions() {
         whole = 0;
         decimal = 0;
         numerator = 0;
         denominator = 1;
     }
 
-    public void Fractions(double number) {
+    public Fractions(double number) {
         whole = (int)number;
         number -= whole;
 
@@ -31,7 +31,7 @@ public class Fractions {
         setDecimal();
     }
 
-    public void Fractions(int newNumerator, int newDenominator, int newWhole) {
+    public Fractions(int newNumerator, int newDenominator, int newWhole) {
         whole = newWhole + (newNumerator / newDenominator);
         denominator = newDenominator;
         numerator = newNumerator % newDenominator;

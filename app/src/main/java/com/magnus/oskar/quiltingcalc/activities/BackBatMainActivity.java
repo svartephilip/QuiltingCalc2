@@ -137,7 +137,7 @@ public class BackBatMainActivity extends AppCompatActivity implements PassData {
         String[] string = {editWidth.getText().toString(), editLength.getText().toString(), editOverage.getText().toString()};
 
         if(TextUtils.isEmpty(string[0]) && TextUtils.isEmpty(string[1]) && TextUtils.isEmpty(string[2])) {
-            Toast toast = Toast.makeText(this, "Fill all fields", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "Fill all the fields", Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
