@@ -6,7 +6,8 @@ package com.magnus.oskar.quiltingcalc.calculations;
 
 public class BackBat extends Conversion {
 
-    Conversion width, length, fWidth, overage;
+    private Conversion width, length, fWidth, overage;
+    private Conversion neededLength = new Conversion();
 
     private final double CMTOYARDRATIO = 36 * INCHTOCMRATIO; // the ratio between yard and centimeter
     private final double INCHTOYARDRATIO = 36;
@@ -27,21 +28,23 @@ public class BackBat extends Conversion {
     }
 
     // Getters
-    public Conversion getWidth() {
+    private Conversion getWidth() {
         return width;
     }
 
-    public Conversion getLength() {
+    private Conversion getLength() {
         return length;
     }
 
-    public Conversion getFWidth() {
+    private Conversion getFWidth() {
         return fWidth;
     }
 
-    public Conversion getOverage() {
+    private Conversion getOverage() {
         return overage;
     }
+
+    private Conversion getNeededLength() { return neededLength; }
 
     // setters
     public void setWidth(Conversion newWidth) {
@@ -100,26 +103,23 @@ public class BackBat extends Conversion {
     // Methods
 
     // 2 width methods because the seam thickness is different (?)
-    public Conversion findLengthCm () {
+    public void findLengthCm () {
 
         //placeholder data
-        Conversion placeholderLength = new Conversion(length);
         Conversion placeholderFWidth = new Conversion(fWidth);
         Conversion placeholderWidth = new Conversion(width);
 
         // Add in the overage
         placeholderWidth.setCm(placeholderWidth.getCm() + (overage.getCm() * 2));
-        placeholderLength.setCm(placeholderLength.getCm() + (overage.getCm() * 2));
+        neededLength.setCm(length.getCm() + (overage.getCm() * 2));
 
         while(placeholderWidth.getCm() > placeholderFWidth.getCm()) {
 
             // Increment of one length per seam
             // fWidth also increases to say when to stop
-            placeholderLength.setCm(placeholderLength.getCm() + placeholderLength.getCm());
+            neededLength.setCm(neededLength.getCm() + neededLength.getCm());
             placeholderFWidth.setCm(placeholderFWidth.getCm() + placeholderWidth.getCm() + 2);
         }
-
-        return placeholderLength;
     }//findLengthCm
 
     public Conversion findLengthInch() {
@@ -153,6 +153,7 @@ public class BackBat extends Conversion {
 
     public String toString() {
         return "Width: " + getWidth() + "\nLength: " + getLength() +
-                "\nfabric width: " + getFWidth() + "\noverage: " + getOverage();
+                "\nfabric width: " + getFWidth() + "\noverage: " + getOverage() +
+                "Needed Length: "+ getNeededLength();
     }
 }// class
